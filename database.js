@@ -30,23 +30,29 @@ app.use((req, res, next) => {
 }); 
 app.post('/query', async (req, res) => {
     console.log(req.body) 
- 
-
-    sqlite.connect('database.db');
-   
-    try {
-        var rows = await sqlite.run(req.body.querySQL);
-        console.log(row)
-        res.send(rows)
-    } catch (e) {
-        res.send(e)
-   
-    }
- 
+    let data = await sqlQueryJson(req.body.querySQL) 
+    res.send(data) 
   
 });
+ 
 
 
+async function sqlQueryJson(query) {
+    sqlite.connect( 'database.db');
+    console.log(query)
+   
+    try {
+        var rows = await sqlite.run(query);
+        console.log(rows)
+        return rows
+    } catch (e) {
+
+        return {
+            "error": e
+        }
+        cmd("pm2 restart "+process.env.NAME_PROCESS)
+    }
+}
  
 app.listen(9090); 
 
