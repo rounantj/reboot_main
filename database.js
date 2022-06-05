@@ -39,7 +39,7 @@ app.post('/query', (req, res) => {
     execSQL("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))",res)
 })
 
-app.post('/query', (req, res) => {
+app.post('/query2', (req, res) => {
     console.log(req.body)
     res.send(req.body)
 })
