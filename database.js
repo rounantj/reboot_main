@@ -34,6 +34,7 @@ app.use((req, res, next) => {
     next();
 }); 
 app.post('/query', (req, res) => {
+    console.log(req.body)
     execSQL(req.body.querySQL, res) 
 })
  
