@@ -20,8 +20,8 @@ const mysql      = require('mysql');
 const conn = mysql.createConnection({
   host     : 'localhost',
   port     : 3306,
-  user     :'root',
-  password : '',
+  user     :'ronanr',
+  password : 'mdt1234@',
   database : 'seminarios'
 }); 
 
@@ -34,8 +34,7 @@ app.use((req, res, next) => {
     next();
 }); 
 app.post('/query', (req, res) => {
-    console.log(req.body)
-    //execSQL(req.body.querySQL, res) 
+    console.log(req.body) 
     execSQL("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))",res)
 })
 
