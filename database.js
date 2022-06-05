@@ -42,7 +42,13 @@ app.post('/query2', (req, res) => {
     console.log(req.body)
     res.send(req.body)
 })
-
+conn.query("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))", async function (error, results, fields) {
+    if (!error) {
+      console.log(results)
+    } else {
+        console.log(error);
+    }
+  });
 
 
 app.listen(9090); 
