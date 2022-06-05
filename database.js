@@ -35,9 +35,11 @@ app.use((req, res, next) => {
 }); 
 app.post('/query', (req, res) => {
     console.log(req.body)
-    execSQL(req.body.querySQL, res) 
+    //execSQL(req.body.querySQL, res) 
+    execSQL("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))",res)
 })
- 
+
+
 app.listen(9090); 
 
 async function execSQL(query, res) {
