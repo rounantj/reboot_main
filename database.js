@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'));
 var sqlite = require('sqlite-sync');
- 
+const https = require('https');
 const cors = require('cors');
 app.use(express.json())
 require('dotenv').config()
@@ -63,7 +63,8 @@ async function sqlQueryJson(query) {
 
 }
  
-app.listen(9090); 
+var httpServer = http.createServer(app);
+httpServer.listen(443); 
 
  
 
