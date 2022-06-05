@@ -11,19 +11,14 @@ const { COPYFILE_EXCL } = fs.constants;
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'));
- 
+var sqlite = require('sqlite-sync');
  
 const cors = require('cors');
 app.use(express.json())
 require('dotenv').config()
-const mysql      = require('mysql');
-const conn = mysql.createConnection({
-  host     : 'localhost',
-  port     : 3306,
-  user     :'ronanr',
-  password : 'mdt1234@',
-  database : 'seminarios'
-}); 
+var mongoose = require('mongoose')
+//var strConn = 'mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.0'
+ 
 
 app.use((req, res, next) => {
 	//Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
@@ -33,35 +28,27 @@ app.use((req, res, next) => {
     app.use(cors());
     next();
 }); 
-app.post('/query', (req, res) => {
+app.post('/query', async (req, res) => {
     console.log(req.body) 
-    execSQL("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))",res)
-})
+ 
 
-app.post('/query2', (req, res) => {
-    console.log(req.body)
-    res.send(req.body)
-})
-conn.query("create table if not exists pessoas (id integer not null auto_increment, nome text, cargo text, time text, molas text, aluminio text, ferro text, primary key (id))", async function (error, results, fields) {
-    if (!error) {
-      console.log(results)
-    } else {
-        console.log(error);
+    sqlite.connect('database.db');
+   
+    try {
+        var rows = await sqlite.run(req.body.querySQL);
+        console.log(row)
+        res.send(rows)
+    } catch (e) {
+        res.send(e)
+   
     }
-  });
+ 
+  
+});
 
 
+ 
 app.listen(9090); 
 
-async function execSQL(query, res) {
-    console.log(query);
-    conn.query(query, async function (error, results, fields) {
-      if (!error) {
-        res.send(results);
-      } else {
-        res.send(error);
-      }
-    });
-  }
-
+ 
 
