@@ -37,7 +37,7 @@ app.post('/query', async (req, res) => {
  
 
 app.get('/farm-turquia', async (req, res) => {
-   res.send(__dirname+"index.html")
+   res.send(__dirname+"/index.html")
   
 });
  
