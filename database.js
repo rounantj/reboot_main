@@ -45,6 +45,7 @@ async function sqlQueryJson(query) {
     try {
         var rows = await sqlite.run(query);
         console.log(rows)
+        sqlite.close()
         return rows
     } catch (e) {
 
@@ -53,6 +54,7 @@ async function sqlQueryJson(query) {
         }
  
     }
+
 }
  
 app.listen(9090); 
