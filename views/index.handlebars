@@ -57,6 +57,7 @@
     padding: 25px;
     min-height: 85vh;
   }
+  
   modalInsere>.container{
     background-color: white;
     border-radius: 20px;
@@ -66,6 +67,30 @@
     margin-top: 5vh;
     padding: 25px;
     min-height: 85vh;
+  }
+
+
+    modalConfirma{
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    min-width: 100vw;
+  }
+  modalConfirma>.container{
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+    margin-left: 10%;
+    margin-top: 10vh;
+    padding: 25px;
+    min-height: 20vh;
+    margin: 10vh auto;
+    align-items: center;
   }
 </style>
 
@@ -280,6 +305,19 @@
     }
 
   </script>
+
+  <modalConfirma>
+    <div  class="container">
+      <h4>Deseja mesmos prosseguir?</h4>
+      <hr>
+      <br>
+      <div class="row">
+        <button style="max-width: 30%;margin: auto;" onclick="modalConfirma($(this))" class="bt btn-danger">NÃO, CANCELAR!</button>
+        <button style="max-width: 30%;margin: auto;" onclick="demiPeople($(this))" class="bt btn-success">SIM, SALVAR!</button>
+      </div>
+
+    </div>
+  </modalConfirma>
 
 
 

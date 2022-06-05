@@ -26,7 +26,7 @@ function getPeoples(){
         type: 'POST',
         //url: 'http://localhost:9090/query2',
          url: '/query',
-        data: {"querySQL":"select * from pessoas2"},
+        data: {"querySQL":"select * from pessoas2 order by registro asc"},
 
         success: function (data) {
           
@@ -367,6 +367,12 @@ function showPeoples(data) {
       border-radius: 10px;" onclick="editPeople($(this))" type="button" class="btn btn-default btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                     Editar Pessoa
                   </button>
+                  <hr>
+              
+                  <button registro="${data[k].registro}" style="    min-height: 100px;
+                  border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Demitir Pessoa
+                              </button>
                 </td>
               </tr>
         `;
@@ -377,8 +383,22 @@ function showPeoples(data) {
      
     }
   }
-
-
+function modalConfirma(element){
+  $("modalConfirma").find("button").attr("registro", element.attr("registro"))
+  $("modalConfirma").slideToggle()
+}
+function demiPeople(element){
+  if(element.attr('registro') != ""){
+    request(
+      `delete from pessoas2 where registro = '${element.attr('registro')}'`
+    )
+    setTimeout(() => {
+      location.reload()
+    }, 1000);
+  } 
+  
+}
+ 
   function editPeople(element){
     let peoples = JSON.parse(localStorage.PEOPLES)
     console.log(peoples)
