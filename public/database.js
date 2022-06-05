@@ -4,7 +4,7 @@ async function request(textSQL){
    return await $.ajax({
         type: 'POST',
         //url: 'http://localhost:9090/query2',
-         url: 'http://165.232.139.89:9090/query',
+         url: '/query',
         data: {"querySQL":textSQL},
 
         success: function (data) {
@@ -25,7 +25,7 @@ function getPeoples(){
     $.ajax({
         type: 'POST',
         //url: 'http://localhost:9090/query2',
-         url: 'http://165.232.139.89:9090/query',
+         url: '/query',
         data: {"querySQL":"select * from pessoas2"},
 
         success: function (data) {

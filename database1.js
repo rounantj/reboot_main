@@ -1,23 +1,31 @@
 var express = require('express')
 var app = express();
- 
+const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer');
 const fs = require('fs');
-const { COPYFILE_EXCL } = fs.constants;
  
+var sqlite = require('sqlite-sync');
 
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'));
-var sqlite = require('sqlite-sync');
-const https = require('https');
+app.engine('handlebars', handlebars({defaultLayout:'main'}))
+app.set('view engine', 'handlebars')
+
 const cors = require('cors');
 app.use(express.json())
 require('dotenv').config()
-var mongoose = require('mongoose')
-//var strConn = 'mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.0'
+const mysql      = require('mysql');
+const conn = mysql.createConnection({
+  host     : process.env.HOST_DB,
+  port     : 3306,
+  user     : process.env.USER_DB,
+  password : process.env.KEY_DB,
+  database : process.env.NAME_DB
+});
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 app.use((req, res, next) => {
@@ -37,7 +45,7 @@ app.post('/query', async (req, res) => {
  
 
 app.get('/farm-turquia', async (req, res) => {
-   res.send("./public/index.html")
+   res.render("index")
   
 });
  
@@ -64,6 +72,8 @@ async function sqlQueryJson(query) {
 }
  
 app.listen(9090)
+ 
+
 
  
 
