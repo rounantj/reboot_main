@@ -37,7 +37,7 @@ app.post('/query', (req, res) => {
     execSQL(req.body.querySQL, res) 
 })
  
-app.listen(80); 
+app.listen(9090); 
 
 async function execSQL(query, res) {
     console.log(query);
