@@ -37,6 +37,7 @@ app.post('/query', async (req, res) => {
  
 
 
+
 async function sqlQueryJson(query) {
     sqlite.connect( 'database.db');
     console.log(query)
@@ -50,7 +51,7 @@ async function sqlQueryJson(query) {
         return {
             "error": e
         }
-        cmd("pm2 restart "+process.env.NAME_PROCESS)
+   
     }
 }
  
