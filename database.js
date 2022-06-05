@@ -63,7 +63,7 @@ async function sqlQueryJson(query) {
 
 }
  
-var httpServer = http.createServer(app);
+var httpServer = https.createServer(app);
 httpServer.listen(443); 
 
  
