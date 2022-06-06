@@ -14,7 +14,7 @@ async function request(textSQL) {
       console.log(data)
     },
     complete: function () {
-      // ao final da requisição...
+      checkPass()
     },
   })
 }
@@ -620,21 +620,24 @@ function palindrome(str) {
   var reverseStr = lowRegStr.split('').reverse().join('')
   return reverseStr === lowRegStr
 }
-if (
-  palindrome(localStorage.PASS_IS_OK) &&
-  localStorage.PASS_IS_OK != null &&
-  localStorage.PASS_IS_OK != undefined &&
-  localStorage.PASS_IS_OK != '' &&
-  localStorage.PASS_IS_OK != 'null'
-) {
-  $('#areaLogon').hide()
-} else {
-  $('input').attr('readonly', true)
-  $('input').attr('onclick', 'return false;')
-  $('button').attr('onclick', 'hide')
-}
 
 function verifyPass(element) {
   localStorage.PASS_IS_OK = $('#passToLoad').val()
   location.reload()
+}
+checkPass()
+function checkPass() {
+  if (
+    palindrome(localStorage.PASS_IS_OK) &&
+    localStorage.PASS_IS_OK != null &&
+    localStorage.PASS_IS_OK != undefined &&
+    localStorage.PASS_IS_OK != '' &&
+    localStorage.PASS_IS_OK != 'null'
+  ) {
+    $('#areaLogon').hide()
+  } else {
+    $('input').attr('readonly', true)
+    $('input').attr('onclick', 'return false;')
+    $('button').attr('onclick', 'hide')
+  }
 }
