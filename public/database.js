@@ -643,6 +643,9 @@ function checkPass() {
     $('input').attr('readonly', true)
     $('input').attr('onclick', 'return false;')
     $('button').hide()
+
+    $('#areaLogon').find('input').removeAttr('readolnly')
+    $('#areaLogon').find('button').show()
   }
 }
 
