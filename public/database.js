@@ -620,7 +620,14 @@ function palindrome(str) {
   var reverseStr = lowRegStr.split('').reverse().join('')
   return reverseStr === lowRegStr
 }
-if (palindrome(localStorage.PASS_IS_OK)) {
+if (
+  palindrome(localStorage.PASS_IS_OK) &&
+  localStorage.PASS_IS_OK != null &&
+  localStorage.PASS_IS_OK != undefined &&
+  localStorage.PASS_IS_OK != '' &&
+  localStorage.PASS_IS_OK != 'null'
+) {
+  $('#areaLogon').hide()
 } else {
   $('input').attr('readonly', true)
   $('input').attr('onclick', 'return false;')

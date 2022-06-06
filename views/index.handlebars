@@ -83,13 +83,14 @@
 
           </ul>
 
-          <div style='float: right' class='row'>
+          <div style='float: right' id='areaLogon' class='row'>
             <div class='input-group mb-3'>
               <input
+                id='passToLoad'
                 onchange='verifyPass($(this))'
-                type='text'
+                type='password'
                 class='form-control'
-                placeholder='Pesquise pelo nome'
+                placeholder='Insira sua senha'
                 aria-label="Recipient's username"
                 aria-describedby='button-addon2'
               />
@@ -101,7 +102,7 @@
                 id='button-addon2'
                 data-mdb-ripple-color='dark'
               >
-                Pesquisar
+                LOGAR
               </button>
             </div>
           </div>
