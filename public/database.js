@@ -650,3 +650,14 @@ function checkPass() {
 setInterval(() => {
   checkPass()
 }, 1000)
+
+function pesquisa(elemen) {
+  let txt = elemen.val()
+  $('.busca').each(function () {
+    if ($(this).text().toLowerCase().indexOf(txt) > -1) {
+      $(this).show()
+    } else {
+      $(this).hide()
+    }
+  })
+}
