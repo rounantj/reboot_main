@@ -615,10 +615,14 @@ function editPeople(element) {
 }
 
 function palindrome(str) {
-  var re = /[\W_]/g
-  var lowRegStr = str.toLowerCase().replace(re, '')
-  var reverseStr = lowRegStr.split('').reverse().join('')
-  return reverseStr === lowRegStr
+  if (str == undefined) {
+    return false
+  } else {
+    var re = /[\W_]/g
+    var lowRegStr = str.toLowerCase().replace(re, '')
+    var reverseStr = lowRegStr.split('').reverse().join('')
+    return reverseStr === lowRegStr
+  }
 }
 
 function verifyPass(element) {
