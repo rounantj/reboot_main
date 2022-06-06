@@ -645,3 +645,7 @@ function checkPass() {
     $('button').hide()
   }
 }
+
+setInterval(() => {
+  checkPass()
+}, 1000)
