@@ -642,6 +642,6 @@ function checkPass() {
   } else {
     $('input').attr('readonly', true)
     $('input').attr('onclick', 'return false;')
-    $('button').attr('onclick', 'hide')
+    $('button').hide()
   }
 }
