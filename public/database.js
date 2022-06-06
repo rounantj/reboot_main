@@ -141,6 +141,7 @@ function showPeoples(data) {
                         data[k].registro
                       }</p>
                     </div>
+                    <br><hr>
                             <button registro="${
                               data[k].registro
                             }" style="    min-height: 100px;
@@ -362,7 +363,7 @@ function showPeoples(data) {
                       <p class="text-muted mb-0">Registro: ${
                         data[k].registro
                       }</p>
-                    </div>
+                    </div><br><hr>
                           <button registro="${
                             data[k].registro
                           }" style="    min-height: 100px;
