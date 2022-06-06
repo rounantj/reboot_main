@@ -24,7 +24,10 @@ function getPeoples() {
     type: 'POST',
     //url: 'http://localhost:9090/query2',
     url: '/query',
-    data: { querySQL: 'select * from pessoas2 order by registro asc' },
+    data: {
+      querySQL:
+        'select *, cast(registro as unsigned integer) as reg from pessoas2 order by reg asc',
+    },
 
     success: function (data) {
       console.log(data)
