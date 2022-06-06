@@ -141,13 +141,14 @@ function showPeoples(data) {
                         data[k].registro
                       }</p>
                     </div>
-                    <br><hr>
+                  <div class="ms-3">
                             <button registro="${
                               data[k].registro
                             }" style="    min-height: 100px;
                   border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                                 Demitir Pessoa
                               </button>
+                  </div>
                   </div>
                 </td>
                 <td>
@@ -363,13 +364,15 @@ function showPeoples(data) {
                       <p class="text-muted mb-0">Registro: ${
                         data[k].registro
                       }</p>
-                    </div><br><hr>
+                    </div> 
+                    <div class="ms-3">
                           <button registro="${
                             data[k].registro
                           }" style="    min-height: 100px;
                   border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                                 Demitir Pessoa
                               </button>
+                  </div>
                   </div>
                 </td>
                 <td>
