@@ -141,11 +141,17 @@ function showPeoples(data) {
                         data[k].registro
                       }</p>
                     </div>
+                            <button registro="${
+                              data[k].registro
+                            }" style="    min-height: 100px;
+                  border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Demitir Pessoa
+                              </button>
                   </div>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">CARGO (${data[k].cargo})</p>
-                  <p class="text-muted mb-0">Time (${data[k].time})</p>
+                  <p class="text-muted mb-0">Facção (${data[k].time})</p>
                 </td>
              
                 <td>
@@ -335,12 +341,7 @@ function showPeoples(data) {
       border-radius: 10px;" onclick="editPeople($(this))" type="button" class="btn btn-default btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                     Editar Pessoa
                   </button>
-                   <button registro="${
-                     data[k].registro
-                   }" style="    min-height: 100px;
-                  border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                                Demitir Pessoa
-                              </button>
+           
                 </td>
               </tr>
         `
@@ -362,11 +363,17 @@ function showPeoples(data) {
                         data[k].registro
                       }</p>
                     </div>
+                          <button registro="${
+                            data[k].registro
+                          }" style="    min-height: 100px;
+                  border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Demitir Pessoa
+                              </button>
                   </div>
                 </td>
                 <td>
                   <p class="fw-normal mb-1">CARGO (${data[k].cargo})</p>
-                  <p class="text-muted mb-0">Time (${data[k].time})</p>
+                  <p class="text-muted mb-0">Facção (${data[k].time})</p>
                 </td>
              
                 <td>
@@ -558,12 +565,7 @@ function showPeoples(data) {
                   </button>
                   <hr>
               
-                  <button registro="${
-                    data[k].registro
-                  }" style="    min-height: 100px;
-                  border-radius: 10px;" onclick="modalConfirma($(this))" type="button" class="btn btn-danger btn-action btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                                Demitir Pessoa
-                              </button>
+            
                 </td>
               </tr>
         `
