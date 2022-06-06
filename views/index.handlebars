@@ -1,413 +1,445 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja</title>
-  <link rel="stylesheet" href="css/all.min.css">
-  <link rel="stylesheet" href="css/css.css">
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Loja</title>
+    <link rel='stylesheet' href='css/all.min.css' />
+    <link rel='stylesheet' href='css/css.css' />
 
-  <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel='stylesheet' href='css/mdb.min.css' />
 
-</head>
-<style>
-  main {
-    min-height: 85vh;
-  }
+  </head>
+  <style>
+    main { min-height: 85vh; } .dia { min-height: 30px; min-width: 30px; }
+    .myBtn { width: auto; } .titulo { min-width: 80px; } modal { position:
+    fixed; top: 0; right: 0; min-height: 100vh; background: rgba(0, 0, 0, 0.2);
+    min-width: 100vw; } modalInsere { position: fixed; top: 0; right: 0;
+    min-height: 100vh; background: rgba(0, 0, 0, 0.2); min-width: 100vw; }
+    modal>.container { background-color: white; border-radius: 20px; position:
+    relative; margin: auto; max-width: 95%; margin-top: 5vh; padding: 25px;
+    min-height: 85vh; } modalInsere>.container { background-color: white;
+    border-radius: 20px; position: relative; margin: auto; max-width: 95%;
+    margin-top: 5vh; padding: 25px; min-height: 85vh; } modalConfirma {
+    position: fixed; display: none; top: 0; right: 0; min-height: 100vh;
+    background: rgba(0, 0, 0, 0.2); min-width: 100vw; } modalConfirma>.container
+    { background-color: white; border-radius: 20px; position: relative; margin:
+    auto; max-width: 600px; margin-left: 10%; margin-top: 10vh; padding: 25px;
+    min-height: 20vh; margin: 10vh auto; align-items: center; }
+  </style>
 
-  .dia {
-    min-height: 30px;
-    min-width: 30px;
-
-  }
-
-  .myBtn {
-
-    width: auto;
-  }
-
-  .titulo {
-    min-width: 80px;
-  }
-  modal{
-    position: fixed;
-    top: 0;
-    right: 0;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
-    min-width: 100vw;
-  }
-  modalInsere{
-    position: fixed;
-    top: 0;
-    right: 0;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
-    min-width: 100vw;
-  }
-  modal>.container{
-    background-color: white;
-    border-radius: 20px;
-    position: relative;
-    margin: auto;
-    max-width: 95%;
-    margin-top: 5vh;
-    padding: 25px;
-    min-height: 85vh;
-  }
-  
-  modalInsere>.container{
-    background-color: white;
-    border-radius: 20px;
-    position: relative;
-    margin: auto;
-    max-width: 95%;
-    margin-top: 5vh;
-    padding: 25px;
-    min-height: 85vh;
-  }
-
-
-    modalConfirma{
-    position: fixed;
-    display: none;
-    top: 0;
-    right: 0;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
-    min-width: 100vw;
-  }
-  modalConfirma>.container{
-    background-color: white;
-    border-radius: 20px;
-    position: relative;
-    margin: auto;
-    max-width: 600px;
-    margin-left: 10%;
-    margin-top: 10vh;
-    padding: 25px;
-    min-height: 20vh;
-    margin: 10vh auto;
-    align-items: center;
-  }
-</style>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarLeftAlignExample"
-        aria-controls="navbarLeftAlignExample" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Gamora</a>
-          </li>
-
-          <!-- Navbar dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown"
-              aria-expanded="false">
-              Gestão
-            </a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="/produtos">Pessoas</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="/clientes">Itens</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-            </ul>
-          </li>
-
-        </ul>
-
-
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-
-  <main>
-    <div class="container">
-      <br>
-      <h1>Controle de membros</h1>
-      <button style="float:right ;margin-left: 250px" onclick="zerar()" class="btn btn-info myBtn">ZERAR E INICIAR SEMANA</button>
-      <hr>
-      <div class="container">
-        <div style="gap: 5px !important; width: 100%;" class="row">
-          <button onclick="showModalInsere()" class="btn btn-info myBtn">Cadastrar pessoa</button>
-        
-          
-        </div>
-      </div>
-      <hr>
-      <div class="input-group mb-3">
-        <input onkeyup="pesquisa($(this))" type="text" class="form-control" placeholder="Pesquise pelo nome" aria-label="Recipient's username"
-          aria-describedby="button-addon2" />
-        <button style="z-index: 0 !important;" class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-          Pesquisar
+  <body>
+    <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+      <!-- Container wrapper -->
+      <div class='container-fluid'>
+        <!-- Toggle button -->
+        <button
+          class='navbar-toggler'
+          type='button'
+          data-mdb-toggle='collapse'
+          data-mdb-target='#navbarLeftAlignExample'
+          aria-controls='navbarLeftAlignExample'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <i class='fas fa-bars'></i>
         </button>
+
+        <!-- Collapsible wrapper -->
+        <div class='collapse navbar-collapse' id='navbarLeftAlignExample'>
+          <!-- Left links -->
+          <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+            <li class='nav-item'>
+              <a class='nav-link active' aria-current='page' href='#'>Gamora</a>
+            </li>
+
+            <!-- Navbar dropdown -->
+            <li class='nav-item dropdown'>
+              <a
+                class='nav-link dropdown-toggle'
+                href='#'
+                id='navbarDropdown'
+                role='button'
+                data-mdb-toggle='dropdown'
+                aria-expanded='false'
+              >
+                Gestão
+              </a>
+              <!-- Dropdown menu -->
+              <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                <li>
+                  <a class='dropdown-item' href='/produtos'>Pessoas</a>
+                </li>
+                <li>
+                  <a class='dropdown-item' href='/clientes'>Itens</a>
+                </li>
+                <li>
+                  <hr class='dropdown-divider' />
+                </li>
+
+              </ul>
+            </li>
+
+          </ul>
+
+          <div style='float: right' class='row'>
+            <div class='input-group mb-3'>
+              <input
+                onchange='verifyPass($(this))'
+                type='text'
+                class='form-control'
+                placeholder='Pesquise pelo nome'
+                aria-label="Recipient's username"
+                aria-describedby='button-addon2'
+              />
+              <button
+                onclick='verifyPass($(this))'
+                style='z-index: 0 !important;'
+                class='btn btn-outline-primary'
+                type='button'
+                id='button-addon2'
+                data-mdb-ripple-color='dark'
+              >
+                Pesquisar
+              </button>
+            </div>
+          </div>
+
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
       </div>
-      <hr>
-      <div class="table table-responsive">
-        <table class="table table-striped align-middle mb-0 bg-white">
-          <thead class="bg-light">
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>        
-              <th>Atividade</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody class="listaPessoas">
+      <!-- Container wrapper -->
+    </nav>
 
+    <main>
+      <div class='container'>
+        <br />
+        <h1>Controle de membros</h1>
+        <button
+          style='float:right ;margin-left: 250px'
+          onclick='zerar()'
+          class='btn btn-info myBtn'
+        >ZERAR E INICIAR SEMANA</button>
+        <hr />
+        <div class='container'>
+          <div style='gap: 5px !important; width: 100%;' class='row'>
+            <button
+              onclick='showModalInsere()'
+              class='btn btn-info myBtn'
+            >Cadastrar pessoa</button>
 
-
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </main>
-
-  <modal style="display: none">
-    <div class="container">
-      <div class="row">
-        <h1 style=" max-width: 92%;">Editando pessoa</h1>
-        <button class="btn-close" style="float:right" onclick="editPeople($(this))"></button>
-        
-      </div>
-    <br>
-      <hr>
-      <div class="form">
-     
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Nome</span>
-          <input id="nome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+          </div>
         </div>
-        <br>
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Registro</span>
-          <input readonly id="registro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+        <hr />
+        <div class='input-group mb-3'>
+          <input
+            onkeyup='pesquisa($(this))'
+            type='text'
+            class='form-control'
+            placeholder='Pesquise pelo nome'
+            aria-label="Recipient's username"
+            aria-describedby='button-addon2'
+          />
+          <button
+            style='z-index: 0 !important;'
+            class='btn btn-outline-primary'
+            type='button'
+            id='button-addon2'
+            data-mdb-ripple-color='dark'
+          >
+            Pesquisar
+          </button>
         </div>
-        <br>
+        <hr />
+        <div class='table table-responsive'>
+          <table class='table table-striped align-middle mb-0 bg-white'>
+            <thead class='bg-light'>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Atividade</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody class='listaPessoas'>
 
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Cargo</span>
-          <input id="cargo" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+            </tbody>
+          </table>
         </div>
-        <br>
-        
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Facção</span>
-          <input id="time" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <br>
- 
-
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Foto (url)</span>
-          <input id="foto" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-  
 
       </div>
-      <button id="registroButton" onclick="atualizaPessoa($(this))" style="float: right; margin-top: 50px;     min-height: 100px;
-      border-radius: 10px;" class="btn btn-success">SALVAR</button>
-    </div>
-  
-  </modal>
-  <modalInsere style="display: none">
-    <div class="container">
-      <div class="row">
-        <h1 style=" max-width: 92%;">Editando pessoa</h1>
-        <button class="btn-close" style="float: ;right" onclick="editPeople($(this))"></button>
-        
+    </main>
+
+    <modal style='display: none'>
+      <div class='container'>
+        <div class='row'>
+          <h1 style=' max-width: 92%;'>Editando pessoa</h1>
+          <button
+            class='btn-close'
+            style='float:right'
+            onclick='editPeople($(this))'
+          ></button>
+
+        </div>
+        <br />
+        <hr />
+        <div class='form'>
+
+          <div class='input-group input-group-lg'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>Nome</span>
+            <input
+              id='nome'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Registro</span>
+            <input
+              readonly
+              id='registro'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Cargo</span>
+            <input
+              id='cargo'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Facção</span>
+            <input
+              id='time'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+
+          <div class='input-group input-group-lg'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>Foto (url)</span>
+            <input
+              id='foto'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+
+        </div>
+        <button
+          id='registroButton'
+          onclick='atualizaPessoa($(this))'
+          style='float: right; margin-top: 50px;     min-height: 100px;
+      border-radius: 10px;'
+          class='btn btn-success'
+        >SALVAR</button>
       </div>
-    <br>
-      <hr>
-      <div class="form">
-     
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Nome</span>
-          <input id="nomeIn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <br>
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Registro</span>
-          <input  id="registroIn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <br>
 
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Cargo</span>
-          <input id="cargoIn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <br>
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Facção</span>
-          <input id="timeIn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
-        </div>
-        <br>
- 
+    </modal>
+    <modalInsere style='display: none'>
+      <div class='container'>
+        <div class='row'>
+          <h1 style=' max-width: 92%;'>Editando pessoa</h1>
+          <button
+            class='btn-close'
+            style='float: ;right'
+            onclick='editPeople($(this))'
+          ></button>
 
-        <div class="input-group input-group-lg">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Foto (url)</span>
-          <input id="fotoIn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
         </div>
-  
+        <br />
+        <hr />
+        <div class='form'>
+
+          <div class='input-group input-group-lg'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>Nome</span>
+            <input
+              id='nomeIn'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Registro</span>
+            <input
+              id='registroIn'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Cargo</span>
+            <input
+              id='cargoIn'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+          <div class='input-group input-group-lg'>
+            <span
+              class='input-group-text'
+              id='inputGroup-sizing-lg'
+            >Facção</span>
+            <input
+              id='timeIn'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+          <br />
+
+          <div class='input-group input-group-lg'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>Foto (url)</span>
+            <input
+              id='fotoIn'
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+
+        </div>
+        <button
+          onclick='salvaPessoa()'
+          style='float: right; margin-top: 50px;     min-height: 100px;
+      border-radius: 10px;'
+          class='btn btn-success'
+        >SALVAR</button>
+      </div>
+
+    </modalInsere>
+
+    <script src='js/type-this-1.0.min.js'></script>
+    <script>
+
+      var t = new Typethis({ autoWriting: false, autoWritingDelay: 1500, delay:
+      1000, loop: false, speed: [50, 150], words: ["Body Health", "Treino
+      diário", "Saúde", "Acompanhamento profissional", "Ótimos produtos"] });
+      function pesquisa(elemen) { let txt = elemen.val()
+      $(".busca").each(function () { if
+      ($(this).text().toLowerCase().indexOf(txt) > -1) { $(this).show() } else {
+      $(this).hide() } }) }
+
+    </script>
+
+    <modalConfirma>
+      <div class='container'>
+        <h4>Deseja mesmos prosseguir?</h4>
+        <hr />
+        <br />
+        <div class='row'>
+          <button
+            style='max-width: 30%;margin: auto;'
+            onclick='modalConfirma($(this))'
+            class='bt btn-danger'
+          >NÃO, CANCELAR!</button>
+          <button
+            style='max-width: 30%;margin: auto;'
+            onclick='demiPeople($(this))'
+            class='bt btn-success'
+          >SIM, SALVAR!</button>
+        </div>
 
       </div>
-      <button onclick="salvaPessoa()" style="float: right; margin-top: 50px;     min-height: 100px;
-      border-radius: 10px;" class="btn btn-success">SALVAR</button>
-    </div>
-  
-  </modalInsere>
+    </modalConfirma>
 
+    <footer class='bg-dark text-center text-white'>
+      <!-- Grid container -->
 
-  <script src="js/type-this-1.0.min.js"></script>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class='text-center p-3'
+        style='background-color: rgba(0, 0, 0, 0.2);'
+      >
+        © 2022 Copyright:
+        <a class='text-white'>Reboot Soluções</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+  </body>
+  <script src='js/mdb.min.js'></script>
+
+  <script
+    src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+  ></script>
+  <script src='js/type-this-1.0.js'></script>
+  <script src='database.js'></script>
+
   <script>
 
-    var t = new Typethis({
-      autoWriting: false,
-      autoWritingDelay: 1500,
-      delay: 1000,
-      loop: false,
-      speed: [50, 150],
-      words: ["Body Health", "Treino diário", "Saúde", "Acompanhamento profissional", "Ótimos produtos"]
-    });
-
-    function pesquisa(elemen){
-      let txt = elemen.val()
-      $(".busca").each(function(){
-        if($(this).text().toLowerCase().indexOf(txt) > -1){
-          $(this).show()
-        }else{
-          $(this).hide()
-        }
-      })
-    }
+    function salvaPessoa() { createPeople({ "nome": $("#nomeIn").val(),
+    "registro": $("#registroIn").val(), "cargo": $("#cargoIn").val(), "time":
+    $("#timeIn").val(), "foto": $("#fotoIn").val(), }) } function
+    showModalInsere() { $("modalInsere").slideToggle() } function
+    changeMe(element) { let quem =
+    element.parent().parent().parent().find("input") console.log(quem) let ferro
+    = {}, aluminio = {}, molas = {} quem.each(function () { if
+    ($(this).attr("item") == 'ferro') { ferro[$(this).attr("id")] =
+    $(this)[0].checked } if ($(this).attr("item") == 'aluminio') {
+    aluminio[$(this).attr("id")] = $(this)[0].checked } if ($(this).attr("item")
+    == 'molas') { molas[$(this).attr("id")] = $(this)[0].checked } }) let
+    peoples = JSON.parse(localStorage.PEOPLES) console.log(peoples) let
+    thisPeople = null let registro = element.attr("registro") for(const k in
+    peoples){ if(registro == peoples[k].registro){ thisPeople = peoples[k]
+    peoples[k].ferro = JSON.stringify(ferro) peoples[k].aluminio =
+    JSON.stringify(aluminio) peoples[k].molas = JSON.stringify(molas) } }
+    localStorage.PEOPLES = JSON.stringify(peoples) thisPeople.ferro =
+    JSON.stringify(ferro) thisPeople.aluminio = JSON.stringify(aluminio)
+    thisPeople.molas = JSON.stringify(molas) console.log(thisPeople)
+    updatePeople(thisPeople) }
 
   </script>
-
-  <modalConfirma>
-    <div  class="container">
-      <h4>Deseja mesmos prosseguir?</h4>
-      <hr>
-      <br>
-      <div class="row">
-        <button style="max-width: 30%;margin: auto;" onclick="modalConfirma($(this))" class="bt btn-danger">NÃO, CANCELAR!</button>
-        <button style="max-width: 30%;margin: auto;" onclick="demiPeople($(this))" class="bt btn-success">SIM, SALVAR!</button>
-      </div>
-
-    </div>
-  </modalConfirma>
-
-
-
-  <footer class="bg-dark text-center text-white">
-    <!-- Grid container -->
-
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2022 Copyright:
-      <a class="text-white">Reboot Soluções</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-
-</body>
-<script src="js/mdb.min.js"></script>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/type-this-1.0.js"></script>
-<script src="database.js"></script>
-
-<script>
-
-function salvaPessoa(){
-  createPeople(
-    {
-      "nome": $("#nomeIn").val(),
-      "registro":$("#registroIn").val(),
-      "cargo":$("#cargoIn").val(),
-      "time":$("#timeIn").val(),
-      "foto":$("#fotoIn").val(),
-    }
-  )
-}
-
-
-
-function showModalInsere(){
-  $("modalInsere").slideToggle()
-}
- 
-function changeMe(element){
-  let quem = element.parent().parent().parent().find("input")
-  console.log(quem)
- let ferro = {}, aluminio= {}, molas= {}
-  quem.each(function(){
-    if($(this).attr("item") == 'ferro'){
-      ferro[$(this).attr("id")] = $(this)[0].checked
-    }
-    if($(this).attr("item") == 'aluminio'){
-      aluminio[$(this).attr("id")] = $(this)[0].checked
-    }
-    if($(this).attr("item") == 'molas'){
-      molas[$(this).attr("id")] = $(this)[0].checked
-    }
-  })
-
-  let peoples = JSON.parse(localStorage.PEOPLES)
-  console.log(peoples)
-  let thisPeople = null
-  let registro = element.attr("registro")
-  for(const k in peoples){
-    if(registro == peoples[k].registro){
-      thisPeople = peoples[k]
-      peoples[k].ferro = JSON.stringify(ferro)
-      peoples[k].aluminio = JSON.stringify(aluminio)
-      peoples[k].molas = JSON.stringify(molas)
-    }
-  }
-  localStorage.PEOPLES = JSON.stringify(peoples)
-  thisPeople.ferro = JSON.stringify(ferro)
-  thisPeople.aluminio = JSON.stringify(aluminio)
-  thisPeople.molas = JSON.stringify(molas)
-
-
-  console.log(thisPeople)
-
-  updatePeople(thisPeople)
-
-
-
-
-}
-
-
-
-
-</script>
 
 </html>

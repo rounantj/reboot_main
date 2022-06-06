@@ -613,3 +613,21 @@ function editPeople(element) {
   $('#registroButton').attr('registro', thisPeople.registro)
   $('modal').slideToggle()
 }
+
+function palindrome(str) {
+  var re = /[\W_]/g
+  var lowRegStr = str.toLowerCase().replace(re, '')
+  var reverseStr = lowRegStr.split('').reverse().join('')
+  return reverseStr === lowRegStr
+}
+if (palindrome(localStorage.PASS_IS_OK)) {
+} else {
+  $('input').attr('readonly', true)
+  $('input').attr('onclick', 'return false;')
+  $('button').attr('onclick', 'hide')
+}
+
+function verifyPass(element) {
+  localStorage.PASS_IS_OK = $('#passToLoad').val()
+  location.reload()
+}
